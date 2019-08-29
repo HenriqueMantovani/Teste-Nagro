@@ -24,7 +24,7 @@ module.exports = {
       },
       imovel_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'imovels', key: 'id' },
+        references: { model: 'imoveis', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
