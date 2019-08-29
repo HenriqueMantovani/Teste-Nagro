@@ -2,6 +2,24 @@ import * as Yup from 'yup'; // usa "* as" pq o yup não tem um export
 import Propose from '../models/Propose';
 
 class ProposeController {
+  async index(req, res) {
+    const proposes = await Propose.findAll({
+      where: { user_id: req.userId },
+      order: ['create_at'],
+      atributtes: ['id', 'propose_description']
+      include:  [
+        {
+        model: Imovel,
+        as: imovel,
+        atributtes: ['id', 'address'],
+         },
+       ],
+    });
+    
+    return res.json(proposes);
+  
+  }
+  
   async store(req, res) {
     const schema = Yup.object().shape({
       imovel_id: Yup.number().required(),
