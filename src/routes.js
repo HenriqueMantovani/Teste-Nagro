@@ -22,10 +22,9 @@ routes.put('/users', UserController.update);
 // Rotas para IMOVEIS
 // Rota para Listagem dos imóveis
 routes.get('/imovels', ImovelController.index);
-// Rota para criação de imóvel
 routes.post('/imovels', ImovelController.store);
 
-//
+// Rotas para Propostas
 routes.post('/proposes', ProposeController.store);
 
 export default routes;
