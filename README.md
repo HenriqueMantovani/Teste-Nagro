@@ -9,5 +9,5 @@ Na tabela Proposta, tera os campos de telefone e descrição da proposta do usu�
 **Ferramentas**:
 
 - O banco utilizado foi Postgres através de um container do Docker
-A criação do servidor foi pelo Express
-O sequelize foi utilizado como ORM, para facilitar a criação, população e migração de banco de dados
+- A criação do servidor foi pelo Express
+- O sequelize foi utilizado como ORM, para facilitar a criação, população e migração de banco de dados
