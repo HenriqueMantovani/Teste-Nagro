@@ -25,6 +25,7 @@ routes.get('/imovels', ImovelController.index);
 routes.post('/imovels', ImovelController.store);
 
 // Rotas para Propostas
+routes.post('/proposes', ProposeController.index);
 routes.post('/proposes', ProposeController.store);
 
 export default routes;
