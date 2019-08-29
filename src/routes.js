@@ -10,7 +10,7 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 
 // Rotas para USERS
-// Passa o metodo Store da class UserController
+// Rota para criação de usuário
 routes.post('/users', UserController.store);
 // Rota para Logar
 routes.post('/sessions', SessionController.store);
