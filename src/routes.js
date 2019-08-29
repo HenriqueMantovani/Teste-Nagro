@@ -21,8 +21,8 @@ routes.put('/users', UserController.update);
 
 // Rotas para IMOVEIS
 // Rota para Listagem dos imóveis
-routes.get('/imovels', ImovelController.index);
-routes.post('/imovels', ImovelController.store);
+routes.get('/imoveis', ImovelController.index);
+routes.post('/imoveis', ImovelController.store);
 
 // Rotas para Propostas
 routes.post('/proposes', ProposeController.index);
