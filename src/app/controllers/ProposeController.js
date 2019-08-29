@@ -3,10 +3,15 @@ import Propose from '../models/Propose';
 
 class ProposeController {
   async index(req, res) {
+    // Paginação
+    const { page = 1 } = req.query;
+    
     const proposes = await Propose.findAll({
       where: { user_id: req.userId },
       order: ['create_at'],
-      atributtes: ['id', 'propose_description']
+      atributtes: ['id', 'propose_description'],
+      limit:10,
+      offset: ( page - 1 ) * 10,
       include:  [
         {
         model: Imovel,
