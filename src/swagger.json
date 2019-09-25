@@ -21,14 +21,44 @@
     "http",
     "https"
   ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {      
+       "type": "http",
+       "scheme": "bearer",
+       "bearerFormat": "JWT"
+      }
+    }
+  },
   "consumes": [
     "aplication/json"
   ],
   "produces": [
     "aplication/json"
   ],
+  "paths": {
+    "/imovels": {
+      "get": {
+        "tags": [
+          "Imoveis"
+        ],
+        "security": {
+         "bearerAuth": []
+        },
+        "summary": "Get all Imoveis in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Imoveis"
+            }
+          }
+        } 
+      }
+    }
+  },
   "definitions": {
-    "users": {
+    "Users": {
       "type": "object",
       "properties": {
         "id": {
@@ -45,7 +75,7 @@
         }
       }
     },
-    "imoveis": {
+    "Imovel": {
       "type": "object",
       "properties": {
         "id": {
@@ -68,6 +98,22 @@
         },
         "description": {
           "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      }
+    },
+    "Imoveis": {
+      "properties": {
+        "imoveis": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Imovel"
+          }
         }
       }
     }

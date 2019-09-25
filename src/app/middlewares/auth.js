@@ -7,14 +7,14 @@ import authConfig from '../../config/auth';
 
 // Arquivo que verifica pelo token do JWT se o usuário está logado
 export default async (req, res, next) => {
-  const authHeader = req.headers.authorization;
+  const authHeader = req.headers;
 
   if (!authHeader) {
-    return res.status(401).json({ error: 'Tken not provided' });
+    return res.status(401).json({ error: 'Token not provided' });
   }
 
   // Desestruturação para pegar apenas o token, sem o Bearer
-  const [, token] = authHeader.split(' ');
+  // const [, token] = authHeader.split(' ');
 
   try {
     // No decoded vao estar as inf que se utilizou na hora de gerar o token
