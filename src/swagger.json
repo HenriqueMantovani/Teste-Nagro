@@ -24,17 +24,8 @@
   "securityDefinitions": {
   "Bearer": {
     "type": "apiKey",
-    "name": "Authorization",
+    "name": "authorization",
     "in": "header"
-  }
-  },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {      
-       "type": "http",
-       "scheme": "bearer",
-       "bearerFormat": "JWT"
-      }
     }
   },
   "consumes": [
@@ -46,12 +37,16 @@
   "paths": {
     "/imovels": {
       "get": {
+        "security": [
+          {
+            "Bearer": [
+
+            ]
+          }
+        ],
         "tags": [
           "Imoveis"
         ],
-        "security": {
-         "bearerAuth": []
-        },
         "summary": "Get all Imoveis in system",
         "responses": {
           "200": {
@@ -60,7 +55,7 @@
               "$ref": "#/definitions/Imoveis"
             }
           }
-        } 
+        }
       }
     }
   },

@@ -21,15 +21,12 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 // Rota que verifica se o usuário ja está logado
 
-
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 // Rota para alteração de dados
 routes.put('/users', UserController.update);
 
-// Rotas para IMOVEIS
-// Rota para Listagem dos imóveis
-routes.get('/imovels', ImovelController.index);
-// Rota para criação de imóvel
+routes.get('/imovels', authMiddleware, ImovelController.index);
+
 routes.post('/imovels', ImovelController.store);
 
 //
